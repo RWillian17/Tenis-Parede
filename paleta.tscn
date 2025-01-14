@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3p8s7cao2suv"]
+
+[ext_resource type="Texture2D" uid="uid://duh52vup72hin" path="res://asset/paleta.png" id="1_2y26y"]
+[ext_resource type="Script" path="res://paleta.gd" id="1_ov3v3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh5gc"]
+size = Vector2(21.0938, 5.40625)
+
+[node name="Paleta" type="Area2D"]
+scale = Vector2(1.6, 1.6)
+script = ExtResource("1_ov3v3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.17233e-07, -8.19564e-08)
+scale = Vector2(1.6875, 1.75)
+texture = ExtResource("1_2y26y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_xh5gc")

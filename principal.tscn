@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjc0rdncf0mlm"]
+
+[ext_resource type="Script" path="res://principal.gd" id="1_2g20s"]
+[ext_resource type="Texture2D" uid="uid://t0r6myqmt0mp" path="res://asset/background.png" id="1_gf876"]
+[ext_resource type="PackedScene" uid="uid://b3p8s7cao2suv" path="res://paleta.tscn" id="3_0b8ld"]
+[ext_resource type="PackedScene" uid="uid://52mm16oeqstc" path="res://Quadrado.tscn" id="4_y3vyp"]
+
+[node name="Principal" type="Node2D"]
+script = ExtResource("1_2g20s")
+deNovo = ExtResource("4_y3vyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(301, 201)
+texture = ExtResource("1_gf876")
+
+[node name="Paleta" parent="." instance=ExtResource("3_0b8ld")]
+position = Vector2(300, 370)
+
+[node name="Label_melhor" type="Label" parent="."]
+offset_left = 505.0
+offset_top = 30.0
+offset_right = 561.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 13
+text = "Melhor:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_atual" type="Label" parent="."]
+offset_left = 505.0
+offset_top = 52.0
+offset_right = 561.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 13
+text = "Atual:"
+
+[connection signal="area_entered" from="Paleta" to="." method="_on_paleta_area_entered"]
+[connection signal="area_entered" from="Paleta" to="Paleta" method="_on_Quadrado_area_entered"]
