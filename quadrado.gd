@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 		self.dirx = -self.dirx
 	elif self.position.x >=590:
 		self.dirx = -self.dirx
-	if self.position.y <= 10:
+	if self.position.y <= 15	:
 		self.diry = -self.diry
 		
 	
