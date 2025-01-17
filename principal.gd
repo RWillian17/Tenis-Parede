@@ -15,26 +15,27 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 
-func _on_quadrado_acabou() -> void:
+#func _on_quadrado_acabou() -> void:
 	#if left == 1 or right == 1:
-	spawn()
+	#spawn()
 
 func spawn() -> void:
 	var jogar: Quadrado = deNovo.instantiate()
 	jogar.acabou.connect(teste)
 	jogar.name = "Quadrado"
 	#jogar.acertou.connect(teste)
-	jogar.speedQx = randf_range(-500, 500)
-	jogar.speedQy = randf_range(50, 200)
+	jogar.speedQx = randi_range(-500, 500)
+	jogar.speedQy = randi_range(50, 200)
 	jogar.position.x = get_viewport_rect().size.x/2
 	jogar.position.y = 16
 	print("X = ",jogar.speedQx)
 	print("Y = ",jogar.speedQy)
 	add_child(jogar)
+	set_process(true)
 	
 func teste() -> void:
 	spawn()
@@ -43,7 +44,7 @@ func teste() -> void:
 
 
 func _on_paleta_area_entered(area: Area2D) -> void:
-	var abc: Quadrado = get_child(4)
+	var abc: Quadrado = area
 	abc.diry = -abc.diry
 	abc.speedQx += randi_range(-100, 100)
 	abc.speedQy += randi_range(-20, 100)
@@ -54,3 +55,4 @@ func _on_paleta_area_entered(area: Area2D) -> void:
 		
 	label_atual.text = "Atual: " + str(atualPont)
 	label_melhor.text = "Melhor: " + str(melhorPont)
+	
